@@ -1,0 +1,11 @@
+#!/bin/bash
+
+m_LIST=$(sudo ls /etc/wireguard | awk -F. '{print$1}')
+
+m_TUNVPN=`zenity --ok-label=Start --cancel-label=Stop --list --radiolist --column 'Selecione' --column 'Tunnel VPN' $(for op in $m_LIST; do echo "FALSE $op"; done) `
+
+case  $m_CODE in
+1) for i in $m_LIST; do systemctl stop wg-quick@$i; done; (echo "25"; sleep 1; echo "50"; sleep 1;  echo "75"; sleep 1;  echo "100"; sleep 2 ) | zenity --progress  --title="Wireguard" --text="Parando Tunnel $m_TUNVPN" --percentage=0 --auto-close --auto-kill ;;
+0) systemctl restart  wg-quick@$m_TUNVPN;  (echo "25"; sleep 1; echo "50"; sleep 1;  echo "75"; sleep 1;  echo "100"; sleep 2 ) | zenity --progress  --title="Wireguard" --text="Iniciando Tunnel $m_TUNVPN" --percentage=0 --auto-close --auto-kill ;;
+*) zenity --error --text="Algo deu errado, verifique os logs da aplicação..." ;;
+esac
