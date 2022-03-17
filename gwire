@@ -1,5 +1,5 @@
 #!/bin/bash
-
+m_VERSION="0.2"
 m_LIST=$(sudo ls /etc/wireguard | awk -F. '{print$1}')
 
 m_TUNVPN=`zenity --ok-label=Start --cancel-label=Stop --list --radiolist --column 'Selecione' --column 'Tunnel VPN' $(for op in $m_LIST; do echo "FALSE $op"; done) `
