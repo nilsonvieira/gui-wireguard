@@ -31,6 +31,6 @@ cd gwireguard ; chmod o+x configure
 ```bash
 gwire
 ```
-NOTES:
+> NOTES: \
 The desktop icon dont work in gwire version 0.2
 
