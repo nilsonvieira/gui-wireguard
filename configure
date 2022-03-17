@@ -3,6 +3,7 @@ echo " ----- Configurando GWireguard ----- "
 DIR_GWIRE=/opt/gwire
 mkdir -p $DIR_GWIRE
 cp -rp ./* $DIR_GWIRE/
+sudo ln -s $DIR_GWIRE/gwire /usr/local/bin/gwire
 cp -rp $DIR_GWIRE/gwire.desktop /home/$USER/.local/share/applications/
 chmod o+x $DIR_GWIRE/gwire
 echo " ----- Configurado com Sucesso ----- "
