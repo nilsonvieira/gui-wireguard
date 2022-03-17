@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=0.2
+Type=Application
+Terminal=false
+Exec=/opt/gwire/gwire
+Name=Gwireguard
+Icon=/opt/gwire/wireguard.png
